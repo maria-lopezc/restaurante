@@ -7,6 +7,8 @@ import { MinutasListComponent } from './minutas-list/minutas-list.component';
 import { PastasListComponent } from './pastas-list/pastas-list.component';
 import { CombosListComponent } from './combos-list/combos-list.component';
 
+import {FormsModule} from '@angular/forms'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { CombosListComponent } from './combos-list/combos-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(withEventReplay())

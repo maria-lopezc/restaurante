@@ -5,14 +5,26 @@
             <th>Título</th>
             <th>Precio</th>           
             <th></th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor='let combo of combos' [ngClass]="{'noDisp':!combo.disponible}">
-            <td><img [src]="combo.image" [alt]="combo.titulo"></td>
+            <td><img width="150" class="img-thumbnail"
+                [src]="combo.image" [alt]="combo.titulo"></td>
             <td>{{combo.titulo}}</td>
             <td>{{combo.precio | currency}}</td>
-            <td><span class="badge bg-danger" *ngIf='combo.disponible==false'>No disponible</span></td>
+            <td><span class="badge bg-danger" *ngIf='!combo.disponible'>No disponible</span></td>
+            <td>
+                <span *ngIf='combo.disponible'>
+                    <button class="btn btn-sm btn-outline-dark" (click)="downQuantity(combo)">-</button>
+                    <input 
+                        type="number" 
+                        [(ngModel)]="combo.cantidad"
+                        >
+                    <button class="btn btn-sm btn-outline-dark" (click)="upQuantity(combo)">+</button>
+                </span>
+            </td>
         </tr>
     </tbody>
 </table>

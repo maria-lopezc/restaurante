@@ -3,4 +3,5 @@ export interface combo{
     precio: number;
     image: string;
     disponible:boolean;
+    cantidad:number;
 }
