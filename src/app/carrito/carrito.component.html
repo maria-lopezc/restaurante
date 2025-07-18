@@ -1,1 +1,7 @@
 <h3 class="table text-center">Carrito</h3>
+<ul>
+    <li *ngFor="let com of cartList$ | async">
+        <div>{{com.cantidad}} combos de {{com.titulo}}</div>
+        <div >Total: {{com.precio*com.cantidad|currency}}</div>
+    </li>
+</ul>

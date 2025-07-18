@@ -32,6 +32,7 @@ export class InputNumberComponent {
     if(this.cantidad > 0){
       this.cantidad--;
       this.cantidadChange.emit(this.cantidad);
+      this.maxReached.emit(false);
     }
   }
 

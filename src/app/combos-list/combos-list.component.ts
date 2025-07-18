@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Combo } from './combo';
+import { CombosCartService } from '../combos-cart.service';
 
 @Component({
   selector: 'app-combos-list',
@@ -8,12 +9,14 @@ import { Combo } from './combo';
   styleUrl: './combos-list.component.scss'
 })
 export class CombosListComponent {
+  constructor(private cart: CombosCartService){
+  }
+
   combos: Combo[]=[
     {
       titulo:"Suprema Con Papas + Coca Cola 1.5L",
       precio:12000,
       image:"assets/img/suprema.jpg",
-      disponible: true,
       cantidad: 0,
       maxPedido: 15,
       alcanzado:false,
@@ -22,7 +25,6 @@ export class CombosListComponent {
       titulo:"2 Hamburguesas Completas",
       precio:15000,
       image:"assets/img/hambur.jpg",
-      disponible: true,
       cantidad: 0,
       maxPedido: 10,
       alcanzado:false,
@@ -30,13 +32,19 @@ export class CombosListComponent {
     {
       titulo:"Docena de Empanadas + 2 Pizzas",
       precio:25000,
-      image:"assets/img/pizza_emp.jpg", 
-      disponible: false,
+      image:"assets/img/pizza_emp.jpg",
       cantidad: 0,
-      maxPedido: 5,
+      maxPedido: 0,
       alcanzado: false,
     }
   ];
+
+  addToCart(combo: Combo):void{
+    this.cart.addToCart(combo);
+    combo.maxPedido -= combo.cantidad;
+    combo.cantidad=0;
+    combo.alcanzado=false;
+  }
 
   maxReached(m: boolean, combo: Combo){
     combo.alcanzado=m;

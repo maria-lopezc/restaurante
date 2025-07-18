@@ -9,7 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { CarritoComponent } from './carrito/carrito.component';
 import { RestauranteCombosComponent } from './restaurante-combos/restaurante-combos.component';
 import { RestauranteAboutComponent } from './restaurante-about/restaurante-about.component';
-import { InputNumberComponent } from './input-number/input-number.component'
+import { InputNumberComponent } from './input-number/input-number.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { InputNumberComponent } from './input-number/input-number.component'
     CarritoComponent,
     RestauranteCombosComponent,
     RestauranteAboutComponent,
-    InputNumberComponent
+    InputNumberComponent,
   ],
   imports: [
     BrowserModule,

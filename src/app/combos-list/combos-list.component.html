@@ -10,15 +10,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let combo of combos' [ngClass]="{'noDisp':!combo.disponible}">
+        <tr *ngFor='let combo of combos' [ngClass]="{'noDisp':combo.maxPedido==0}">
             <td><img width="100" class="img-thumbnail"
                 [src]="combo.image" [alt]="combo.titulo"></td>
             <td>{{combo.titulo}}</td>
             <td>{{combo.precio | currency}}</td>
-            <td><span class="badge bg-danger" *ngIf='!combo.disponible'>No disponible</span></td>
+            <td><span class="badge bg-danger" *ngIf='combo.maxPedido==0'>No disponible</span></td>
             <td>
-                <app-input-number [(cantidad)]="combo.cantidad" [max]="combo.maxPedido" *ngIf='combo.disponible' (maxReached)="maxReached($event, combo)"></app-input-number>
-                Cant:{{combo.cantidad}}
+                <app-input-number [(cantidad)]="combo.cantidad" [max]="combo.maxPedido" (maxReached)="maxReached($event, combo)" *ngIf='combo.maxPedido>0' ></app-input-number>
+            </td>
+            <td>
+                <span *ngIf='combo.maxPedido>0'>
+                    <button class="btn btn-primary" (click)="addToCart(combo)">Comprar</button>
+                </span>
             </td>
             <td><span class="badge bg-primary" *ngIf='combo.alcanzado'>Orden máxima</span></td>
         </tr>
