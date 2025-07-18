@@ -3,24 +3,16 @@
         <tr>
             <th>Imagen</th>
             <th>Título</th>
-            <th>Precio</th>
+            <th>Precio</th>           
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><img [src]="comboSup.image" [alt]="comboSup.titulo"></td>
-            <td>{{comboSup.titulo}}</td>
-            <td>{{comboSup.precio}}</td>
-        </tr>
-        <tr>
-            <td><img [src]="comboHam.image" [alt]="comboHam.titulo"></td>
-            <td>{{comboHam.titulo}}</td>
-            <td>{{comboHam.precio}}</td>
-        </tr>
-        <tr>
-            <td><img [src]="comboEmp.image" [alt]="comboEmp.titulo"></td>
-            <td>{{comboEmp.titulo}}</td>
-            <td>{{comboEmp.precio}}</td>
+        <tr *ngFor='let combo of combos' [ngClass]="{'noDisp':!combo.disponible}">
+            <td><img [src]="combo.image" [alt]="combo.titulo"></td>
+            <td>{{combo.titulo}}</td>
+            <td>{{combo.precio | currency}}</td>
+            <td><span class="badge bg-danger" *ngIf='combo.disponible==false'>No disponible</span></td>
         </tr>
     </tbody>
 </table>
