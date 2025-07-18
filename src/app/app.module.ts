@@ -8,7 +8,8 @@ import { CombosListComponent } from './combos-list/combos-list.component';
 import {FormsModule} from '@angular/forms';
 import { CarritoComponent } from './carrito/carrito.component';
 import { RestauranteCombosComponent } from './restaurante-combos/restaurante-combos.component';
-import { RestauranteAboutComponent } from './restaurante-about/restaurante-about.component'
+import { RestauranteAboutComponent } from './restaurante-about/restaurante-about.component';
+import { InputNumberComponent } from './input-number/input-number.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RestauranteAboutComponent } from './restaurante-about/restaurante-about
     CombosListComponent,
     CarritoComponent,
     RestauranteCombosComponent,
-    RestauranteAboutComponent
+    RestauranteAboutComponent,
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,

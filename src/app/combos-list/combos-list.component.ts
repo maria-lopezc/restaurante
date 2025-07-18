@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { combo } from './combo';
+import { Combo } from './combo';
 
 @Component({
   selector: 'app-combos-list',
@@ -8,13 +8,15 @@ import { combo } from './combo';
   styleUrl: './combos-list.component.scss'
 })
 export class CombosListComponent {
-  combos: combo[]=[
+  combos: Combo[]=[
     {
       titulo:"Suprema Con Papas + Coca Cola 1.5L",
       precio:12000,
       image:"assets/img/suprema.jpg",
       disponible: true,
       cantidad: 0,
+      maxPedido: 15,
+      alcanzado:false,
     },
     {
       titulo:"2 Hamburguesas Completas",
@@ -22,6 +24,8 @@ export class CombosListComponent {
       image:"assets/img/hambur.jpg",
       disponible: true,
       cantidad: 0,
+      maxPedido: 10,
+      alcanzado:false,
     },
     {
       titulo:"Docena de Empanadas + 2 Pizzas",
@@ -29,19 +33,12 @@ export class CombosListComponent {
       image:"assets/img/pizza_emp.jpg", 
       disponible: false,
       cantidad: 0,
+      maxPedido: 5,
+      alcanzado: false,
     }
   ];
 
-  upQuantity(combo: combo):void{
-    combo.cantidad++;
+  maxReached(m: boolean, combo: Combo){
+    combo.alcanzado=m;
   }
-
-  downQuantity(combo: combo):void{
-    if(combo.cantidad > 0)
-      combo.cantidad--;
-  }
-
-  /*onChangeQuantity(event, combo:combo): void{
-    console.log(event.key);
-  }*/
 }
