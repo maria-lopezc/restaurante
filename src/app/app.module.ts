@@ -3,18 +3,20 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MinutasListComponent } from './minutas-list/minutas-list.component';
-import { PastasListComponent } from './pastas-list/pastas-list.component';
 import { CombosListComponent } from './combos-list/combos-list.component';
 
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { CarritoComponent } from './carrito/carrito.component';
+import { RestauranteCombosComponent } from './restaurante-combos/restaurante-combos.component';
+import { RestauranteAboutComponent } from './restaurante-about/restaurante-about.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    MinutasListComponent,
-    PastasListComponent,
-    CombosListComponent
+    CombosListComponent,
+    CarritoComponent,
+    RestauranteCombosComponent,
+    RestauranteAboutComponent
   ],
   imports: [
     BrowserModule,

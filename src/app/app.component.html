@@ -2,27 +2,15 @@
   <div>
     <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">{{title}}</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Platos</a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Minutas</a></li>
-        <li><a class="dropdown-item" href="#">Pastas</a></li>
-      </ul>
+      <a class="nav-link" aria-current="page" [routerLink]="['/']">{{title}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Combos</a>
+      <a class="nav-link" [routerLink]="['/about']">Acerca de Nosotros</a>
     </li>
     </ul>
   </div>
 </nav>
 <div class="containter">
-  <div class="row">
-    <div class="col-10">
-      <app-combos-list></app-combos-list>    
-      </div>
-    <div class="col-2">Carrito de compras</div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
 <footer>{{title}} 2025</footer>
