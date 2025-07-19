@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Combo } from './combo';
 import { CombosCartService } from '../combos-cart.service';
+import { CombosService } from '../combos.service';
 
 @Component({
   selector: 'app-combos-list',
@@ -9,35 +10,18 @@ import { CombosCartService } from '../combos-cart.service';
   styleUrl: './combos-list.component.scss'
 })
 export class CombosListComponent {
-  constructor(private cart: CombosCartService){
+  constructor(
+    private cart: CombosCartService,
+    private combosService: CombosService
+  ){
   }
 
-  combos: Combo[]=[
-    {
-      titulo:"Suprema Con Papas + Coca Cola 1.5L",
-      precio:12000,
-      image:"assets/img/suprema.jpg",
-      cantidad: 0,
-      maxPedido: 15,
-      alcanzado:false,
-    },
-    {
-      titulo:"2 Hamburguesas Completas",
-      precio:15000,
-      image:"assets/img/hambur.jpg",
-      cantidad: 0,
-      maxPedido: 10,
-      alcanzado:false,
-    },
-    {
-      titulo:"Docena de Empanadas + 2 Pizzas",
-      precio:25000,
-      image:"assets/img/pizza_emp.jpg",
-      cantidad: 0,
-      maxPedido: 0,
-      alcanzado: false,
-    }
-  ];
+  combos: Combo[]=[];
+
+  ngOnInit():void{
+    this.combosService.getAll()
+      .subscribe(combos=>this.combos = combos);
+  }
 
   addToCart(combo: Combo):void{
     this.cart.addToCart(combo);

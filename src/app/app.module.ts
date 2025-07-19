@@ -10,6 +10,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { RestauranteCombosComponent } from './restaurante-combos/restaurante-combos.component';
 import { RestauranteAboutComponent } from './restaurante-about/restaurante-about.component';
 import { InputNumberComponent } from './input-number/input-number.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InputNumberComponent } from './input-number/input-number.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())
