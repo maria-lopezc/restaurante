@@ -9,6 +9,9 @@ En la sección "Acerca de Nosotros" se pueden encontrar algunos datos del restau
 ## Datos del alumno
 
 Nombre: María Lucía López Cáceres
+
 DNI: 46555036
+
 Email: mlopezcaceres@alumnos.exa.unicen.edu.ar 
+
 Sede: Tandil
